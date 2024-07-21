@@ -1,0 +1,19 @@
+parameters: {}
+environment: {}
+packages:
+    - name: lyricbot
+      shared: false
+      environment: {}
+      parameters: {}
+      annotations: {}
+      functions:
+        - name: twitterbot
+          binary: false
+          main: ""
+          runtime: python:default
+          web: true
+          webSecure: false
+          parameters: {}
+          environment: {}
+          annotations: {}
+          limits: {}
