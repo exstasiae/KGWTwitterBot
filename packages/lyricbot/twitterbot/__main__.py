@@ -2,6 +2,7 @@ import tweepy
 import random
 
 def random_line(afile):
+    # Get a random line from given file
     line = next(afile)
     for num, aline in enumerate(afile, 2):
         if random.randrange(num):
@@ -10,25 +11,24 @@ def random_line(afile):
     return line
 
 def tweet(client):
-    testTweet="Test tweet from KGW Lyric Bot"
+    # Post tweet
     lyrics_file = open("lyrics.txt", "r")
-    randomLyric=random_line(lyrics_file)
-    print(randomLyric)
+    randomLyric = random_line(lyrics_file)
     try:
         response = client.create_tweet(
-            text=randomLyric
+            text = randomLyric
         )
     except:
         tweet(client)
-    print(f"https://twitter.com/user/status/{response.data['id']}")
+    # print(f"https://twitter.com/user/status/{response.data['id']}")
 
 def main():
     # Authenticate to Twitter
-    bearer_token = "AAAAAAAAAAAAAAAAAAAAALnGuwEAAAAAQfbCoSXtr1puL9Ik3LRYCuCskts%3D1J82bVlsTezAp94nblQjxHSq5BTzjYaLHl7EkrEFV41qwiYaN4"
-    consumer_key="U15tN9gSWs8D6si8onoYYA6ff"
-    consumer_secret="weaA4PkY5SS3fo9d2rhy6NcOcsHo3gIlND6tDAcn46hhdHJgaZ"
-    access_token="1814718100270686209-FiA1jfLCfrAv1pEBccI0nwuPg2PTwm"
-    access_token_secret="um1Na68LpKJuiWq5ryLnGK2h0XIQ7KB1yp4haq0Bmx292"
+    bearer_token = "REDACTED_BEARER_TOKEN"
+    consumer_key="REDACTED_CONSUMER_KEY"
+    consumer_secret="REDACTED_CONSUMER_SECRET"
+    access_token="REDACTD_ACCESS_TOKEN"
+    access_token_secret="REDACTED_ACCESS_TOKEN_SECRET"
 
     client = tweepy.Client(consumer_key=consumer_key, consumer_secret=consumer_secret, access_token=access_token, access_token_secret=access_token_secret)
 
